@@ -1,0 +1,27 @@
+FUND DESK — CURRENT LIVE SITE SOURCE
+
+This is the source code of the current ChatGPT Sites dashboard, including dark/light theme, account date-range spend and client grouping.
+
+IMPORTANT: THIS IS NOT A NETLIFY DROP DEPLOYMENT PACKAGE.
+Do not drag this source folder into Netlify Drop expecting a working live-data dashboard.
+
+Current dependencies:
+- Cloudflare Worker/Vinext runtime
+- Cloudflare D1 database (schema and migrations included)
+- ChatGPT Sites authenticated identity headers and private audience gate
+- Meta tokens stored in the hosted database, not in this archive
+
+A Netlify migration still requires:
+1. Port the server routes to a supported Netlify runtime.
+2. Provision persistent storage and migrate client mappings/account snapshots.
+3. Replace Sites authentication with verified server-side login and owner/viewer authorization.
+4. Configure Meta credentials as server-only secrets; never put them in public browser assets.
+5. Set up and verify a scheduled background refresh that saves data without an open browser.
+6. Build and deploy the frontend and functions; verify live Meta refresh and team access.
+
+The included seed.json is an old imported snapshot, NOT live data.
+Current live database records, login sessions and Meta tokens are not exported here.
+The MCP background updater exists but no background schedule has been activated.
+
+Existing dashboard:
+https://client-fund-desk.officenex089.chatgpt.site
